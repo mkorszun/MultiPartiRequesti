@@ -1,0 +1,1 @@
+Small wrapper to simplify sending multiple properties and files in HTTP multipart POST request. HTTP and multipart core functionality is done using http://hc.apache.org/.
