@@ -7,5 +7,4 @@ public class MultiPartException extends Exception {
 	public MultiPartException(String msg) {
 		super(msg);
 	}
-	
 }

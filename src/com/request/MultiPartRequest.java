@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.Collection;
+import java.util.Collections;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -20,13 +21,50 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import com.property.FileProperty;
 import com.property.Property;
 
+/**
+ * Wraps HTTP POST multipart request
+ * 
+ * @author mateuszkorszun
+ *
+ */
 public class MultiPartRequest {
 	
+	/**
+	 * Send multipart Post request
+	 * 
+	 * @param url
+	 * @param params
+	 * @return {@link HttpEntity}
+	 * @throws {@link MultiPartException}
+	 */
+	public HttpEntity request(URL url, Collection<Property> params) throws MultiPartException{
+		return request(new DefaultHttpClient(), url, params, Collections.<FileProperty> emptyList());
+	}
+	
+	/**
+	 * Send multipart Post request
+	 * 
+	 * @param url
+	 * @param params
+	 * @param files
+	 * @return {@link HttpEntity}
+	 * @throws {@link MultiPartException}
+	 */
 	public HttpEntity request(URL url, Collection<Property> params, 
 			Collection<FileProperty> files) throws MultiPartException{
 		return request(new DefaultHttpClient(), url, params, files);
 	}
 	
+	/**
+	 * Send multipart Post request
+	 * 
+	 * @param client
+	 * @param url
+	 * @param params
+	 * @param files
+	 * @return {@link HttpEntity}
+	 * @throws {@link MultiPartException}
+	 */
 	public HttpEntity request(HttpClient client, URL url, Collection<Property> params, 
 			Collection<FileProperty> files) throws MultiPartException{
 		try{
@@ -52,7 +90,7 @@ public class MultiPartRequest {
 		} catch (ClientProtocolException e) {
 			throw new MultiPartException("Http connection problem: "+e.getMessage());
 		} catch (IOException e) {
-			throw new MultiPartException(e.getMessage());
+			throw new MultiPartException("IO failure: "+e.getMessage());
 		}
 	}
 }
