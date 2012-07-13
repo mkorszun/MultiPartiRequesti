@@ -21,9 +21,6 @@ public class FileProperty {
 	}
 	
 	public String name(){
-		StringBuilder builder = new StringBuilder();
-		builder.append("file/");
-		builder.append(FilenameUtils.getName(path));
-		return builder.toString();
+		return FilenameUtils.getName(path);
 	}
 }
