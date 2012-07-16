@@ -1,20 +1,20 @@
 package com.property;
 
-public class Property {
+import org.apache.http.message.BasicNameValuePair;
 
-	private String name;
-	private Object value;
+public class Property extends BasicNameValuePair {
+
+	private static final long serialVersionUID = -7605280852766646441L;
 	
 	public Property(String n, Object v){
-		this.name = n;
-		this.value = v;
+		super(n, v.toString());
 	}
 	
 	public String getName() {
-		return name;
+		return super.getName();
 	}
 	
-	public Object getValue() {
-		return value;
+	public String getValue() {
+		return super.getValue();
 	}
 }

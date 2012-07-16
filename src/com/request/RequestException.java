@@ -1,10 +1,10 @@
 package com.request;
 
-public class MultiPartException extends Exception {
+public class RequestException extends Exception {
 
 	private static final long serialVersionUID = 9066871866457835753L;
 
-	public MultiPartException(String msg) {
+	public RequestException(String msg) {
 		super(msg);
 	}
 }
