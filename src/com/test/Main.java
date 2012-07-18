@@ -23,8 +23,8 @@ public class Main {
 	public static void main(String[] args) throws RequestException, IllegalStateException, IOException{
 		
 		List<Property> properties = Arrays.asList(new Property[]{
-				new Property("user_id", "user3"),
-				new Property("password", "pass3")
+				new Property("user_id", "user5"),
+				new Property("password", "pass5")
 		});
 		
 		List<FileProperty> files = Arrays.asList(new FileProperty[]{
