@@ -1,6 +1,5 @@
 package com.request;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
@@ -13,7 +12,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntity;
-import org.apache.http.entity.mime.content.FileBody;
+
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 
@@ -78,8 +77,7 @@ public class MultiPartRequest {
 			}
 			
 			for(FileProperty f : files){
-				FileBody fileBody = new FileBody(new File(f.getPath()), f.getContentType());
-				entity.addPart(f.name(), fileBody);
+				entity.addPart(f.getFilename(), f);
 			}
 			
 			HttpPost httpPost = new HttpPost(url.toString());

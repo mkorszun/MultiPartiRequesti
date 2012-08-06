@@ -1,26 +1,13 @@
 package com.property;
 
-import org.apache.commons.io.FilenameUtils;
+import java.io.File;
 
-public class FileProperty {
+import org.apache.http.entity.mime.content.FileBody;
 
-	private String path;
-	private String contentType;
+public class FileProperty extends FileBody {
 	
 	public FileProperty(String path, String contentType) {
-		this.path = path;
-		this.contentType = contentType;
+		super(new File(path), contentType);
 	}
 	
-	public String getContentType() {
-		return contentType;
-	}
-	
-	public String getPath() {
-		return path;
-	}
-	
-	public String name(){
-		return FilenameUtils.getName(path);
-	}
 }
