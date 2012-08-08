@@ -1,4 +1,4 @@
-package com.request;
+package main.java.com.http.request;
 
 public class RequestException extends Exception {
 

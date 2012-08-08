@@ -1,9 +1,11 @@
-package com.request;
+package main.java.com.http.request;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.Collection;
+
+import main.java.com.http.response.Response;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -13,7 +15,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
-import com.response.Response;
 
 /**
  * Wraps HTTP POST request

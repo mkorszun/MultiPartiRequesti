@@ -1,4 +1,4 @@
-package com.property;
+package main.java.com.http.property;
 
 import org.apache.http.message.BasicNameValuePair;
 

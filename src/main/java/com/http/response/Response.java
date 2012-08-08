@@ -1,4 +1,4 @@
-package com.response;
+package main.java.com.http.response;
 
 import java.io.IOException;
 import java.io.InputStream;

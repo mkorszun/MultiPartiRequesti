@@ -1,10 +1,14 @@
-package com.request;
+package main.java.com.http.request;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.Collection;
 import java.util.Collections;
+
+import main.java.com.http.property.FileProperty;
+import main.java.com.http.property.Property;
+import main.java.com.http.response.Response;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -16,9 +20,6 @@ import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import com.property.FileProperty;
-import com.property.Property;
-import com.response.Response;
 
 /**
  * Wraps HTTP POST multipart request

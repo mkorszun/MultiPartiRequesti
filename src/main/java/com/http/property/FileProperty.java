@@ -1,4 +1,4 @@
-package com.property;
+package main.java.com.http.property;
 
 import java.io.File;
 
