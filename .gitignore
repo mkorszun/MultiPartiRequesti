@@ -1,0 +1,7 @@
+*.class
+*.swp
+bin
+.project
+.classpath
+.settings
+.DS_Store
