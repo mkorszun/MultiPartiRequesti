@@ -9,13 +9,4 @@ public class Property extends BasicNameValuePair {
 	public Property(String n, Object v){
 		super(n, v.toString());
 	}
-	
-	public String getName() {
-		return super.getName();
-	}
-	
-	public String getValue() {
-		return super.getValue();
-	}
-	
 }

@@ -1,12 +1,13 @@
 package main.java.com.http.test;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 
-import main.java.com.http.property.FileProperty;
 import main.java.com.http.property.Property;
+import main.java.com.http.property.ByteArrayProperty;
 import main.java.com.http.request.MultiPartRequest;
 import main.java.com.http.request.Request;
 import main.java.com.http.request.RequestException;
@@ -31,10 +32,15 @@ public class Main {
 				new Property("type", "save")
 		});
 		
-		List<FileProperty> files = Arrays.asList(new FileProperty[]{
-				new FileProperty("test/file1.txt", "application/octet-stream"),
-				new FileProperty("test/file2.bin", "application/octet-stream")
+		List<ByteArrayProperty> files = Arrays.asList(new ByteArrayProperty[]{
+				new ByteArrayProperty(new FileInputStream("test/file1.txt"), "application/octet-stream", "file1.txt"),
+				new ByteArrayProperty(new FileInputStream("test/file2.bin"), "application/octet-stream", "file2.bin")
 		});
+		
+//		List<StreamProperty> files = Arrays.asList(new StreamProperty[]{
+//				new StreamProperty(new FileInputStream("test/file1.txt"), "application/octet-stream", "file1.txt"),
+//				new StreamProperty(new FileInputStream("test/file2.bin"), "application/octet-stream", "file2.bin")
+//		});
 		
 		URL url0 = new URL("http://127.0.0.1:8080/delete_by_name");
 		Request request0 = new Request();
@@ -57,7 +63,7 @@ public class Main {
 		URL url2 = new URL("http://127.0.0.1:8080/read_by_name");
 		Request request2 = new Request();
 		Response res2 = request2.request(url2, properties1);
-		System.out.println("Res2: "+res2);
+		System.out.println("Res2: "+res2.getMessage());
 		
 		List<Property> properties2 = Arrays.asList(new Property[]{
 				new Property("user_id", "user7"),
