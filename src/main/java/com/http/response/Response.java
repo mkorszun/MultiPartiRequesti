@@ -18,12 +18,25 @@ public class Response {
 	private String message;
 	private String contentType;
 	
+	/**
+	 * Constructor
+	 * 
+	 * @param statusCode
+	 * @param message
+	 * @param contentType
+	 */
 	public Response(int statusCode, String message, String contentType) {
 		this.statusCode = statusCode;
 		this.message = message;
 		this.contentType = contentType;
 	}
 	
+	/**
+	 * Constructor
+	 * 
+	 * @param response
+	 * @throws IOException
+	 */
 	public Response(HttpResponse response) throws IOException {
 		
 		InputStream is = null;

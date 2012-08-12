@@ -6,7 +6,6 @@ import java.net.URL;
 import java.util.Collection;
 import java.util.Collections;
 
-import main.java.com.http.property.Property;
 import main.java.com.http.response.Response;
 
 import org.apache.http.HttpResponse;
@@ -19,7 +18,7 @@ import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.ContentBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
-
+import org.apache.http.message.BasicNameValuePair;
 
 /**
  * Wraps HTTP POST multipart request
@@ -38,7 +37,7 @@ public class MultiPartRequest {
 	 * @throws {@link IOException}
 	 * @throws {@link RequestException}
 	 */
-	public Response request(URL url, Collection<Property> params) throws RequestException, IOException{
+	public Response request(URL url, Collection<? extends BasicNameValuePair> params) throws RequestException, IOException{
 		return request(new DefaultHttpClient(), url, params, Collections.<ContentBody> emptyList());
 	}
 	
@@ -52,7 +51,7 @@ public class MultiPartRequest {
 	 * @throws {@link IOException} 
 	 * @throws {@link RequestException}
 	 */
-	public Response request(URL url, Collection<Property> params, 
+	public Response request(URL url, Collection<? extends BasicNameValuePair> params, 
 			Collection<? extends ContentBody> files) throws RequestException, IOException{
 		return request(new DefaultHttpClient(), url, params, files);
 	}
@@ -68,12 +67,12 @@ public class MultiPartRequest {
 	 * @throws {@link IOException} 
 	 * @throws {@link RequestException}
 	 */
-	public Response request(HttpClient client, URL url, Collection<Property> params, 
+	public Response request(HttpClient client, URL url, Collection<? extends BasicNameValuePair> params, 
 			Collection<? extends ContentBody> files) throws RequestException, IOException{
 		try{
 			MultipartEntity entity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
 			
-			for(Property p : params){
+			for(BasicNameValuePair p : params){
 				entity.addPart(p.getName(), new StringBody(p.getValue().toString()));
 			}
 			

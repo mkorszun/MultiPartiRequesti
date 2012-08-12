@@ -4,9 +4,8 @@
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.http</groupId>
-  <artifactId>http</artifactId>
+  <artifactId>multi_parti_requesti</artifactId>
   <packaging>jar</packaging>
-  <version>1.0</version>
   <name>Maven Quick Start Archetype</name>
   <url>http://maven.apache.org</url>
   
@@ -56,4 +55,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	<version>0.1.0</version>
 </project>
